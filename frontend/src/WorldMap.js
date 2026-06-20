@@ -85,7 +85,7 @@ function StockRibbon() {
   useEffect(() => {
     const fetchStocks = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/stocks");
+        const res = await fetch("/api/stocks");
         const data = await res.json();
         setStocks(Array.isArray(data.stocks) ? data.stocks : []);
         setLastUpdated(data.lastUpdated);
@@ -155,7 +155,7 @@ function WorldMap() {
   const [selectedSpot, setSelectedSpot] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/news")
+    fetch("/api/news")
       .then(res => res.json())
       .then(data => {
         if (data.hotspots) {
