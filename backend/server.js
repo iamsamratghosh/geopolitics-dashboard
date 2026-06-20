@@ -3,8 +3,14 @@ const cors = require("cors");
 const nlp = require("compromise");
 require("dotenv").config();
 
-
 const app = express();
+
+app.get("/api/hello", (req, res) => {
+  res.json({ message: "Backend is live!" });
+});
+
+module.exports = app;
+
 app.use(cors());
 
 const NEWS_API_KEY = process.env.NEWS_API_KEY;
